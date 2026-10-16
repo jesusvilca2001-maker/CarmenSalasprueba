@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+
+<!-- =========================================================
+     TUS LINKS
+     Cambia solo lo que está entre comillas. No toques nada más.
+     Si todavía no tienes un link, déjalo entre corchetes [ ]:
+     ese botón no llevará a ninguna parte hasta que lo completes.
+     ========================================================= -->
+<script>
+  const LINKS = {
+    // Íconos redondos de redes
+    instagram: "https://instagram.com/carmenelenace",
+    tiktok:    "[LINK DE TIKTOK]",
+    whatsapp:  "https://wa.me/51XXXXXXXXX",   // tu número con 51 adelante, sin espacios ni +
+
+    // Botones grandes (en el mismo orden en que aparecen)
+    comunidad: "[LINK DEL GRUPO DE WHATSAPP]",
+    cecreart:  "https://instagram.com/cecreart_",
+    cebikinis: "https://instagram.com/cebikinis",
+    lacabana:  "https://instagram.com/lacabanaperu"
+  };
+</script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Carmen Elena</title>
+
+<!-- Tipografías e íconos -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+  /* ---------- Colores de la marca ---------- */
+  :root {
+    --crema: #FAF6F2;        /* fondo */
+    --nude: #E8D5C4;         /* botones y detalles suaves */
+    --cafe: #7A5C4A;         /* nombre y textos */
+    --cafe-oscuro: #5E4536;  /* texto sobre los botones nude, para que se lea mejor */
+    --fucsia: #F4A7C8;       /* acentos */
+    --fucsia-suave: #FDEBF2; /* fondo de la etiqueta */
+    --plateado: #C9CED6;     /* estrellitas (siguiente paso) */
+    --blanco: #FFFFFF;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--crema);
+    color: var(--cafe);
+    font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", sans-serif;
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    justify-content: center;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Columna angosta y centrada (celular primero) */
+  .pagina {
+    width: 100%;
+    max-width: 420px;
+    padding: 56px 24px 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  /* ---------- 1. Foto ---------- */
+  .foto {
+    width: 116px;
+    height: 116px;
+    border-radius: 50%;
+    border: 2px solid var(--fucsia);
+    padding: 4px;
+    margin-bottom: 20px;
+  }
+  .foto img,
+  .foto .iniciales {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+  }
+  /* Si foto.jpg no está en la carpeta, se muestran las iniciales */
+  .foto .iniciales {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: var(--nude);
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 38px;
+    font-weight: 600;
+    color: var(--cafe);
+  }
+  .foto.sin-foto img { display: none; }
+  .foto.sin-foto .iniciales { display: flex; }
+
+  /* ---------- 2. Etiqueta ---------- */
+  .etiqueta {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--cafe-oscuro);
+    background: var(--fucsia-suave);
+    border: 1px solid var(--fucsia);
+    padding: 6px 14px;
+    border-radius: 999px;
+    margin-bottom: 14px;
+  }
+
+  /* ---------- 3. Nombre ---------- */
+  h1 {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-weight: 600;
+    font-size: 46px;
+    line-height: 1.05;
+    color: var(--cafe);
+    margin-bottom: 10px;
+  }
+
+  /* ---------- 4. Línea corta ---------- */
+  .linea {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    line-height: 1.5;
+    margin-bottom: 14px;
+  }
+  .linea span { white-space: nowrap; } /* corta la línea en los puntos, no a mitad de frase */
+
+  /* ---------- 5. Frase ---------- */
+  .frase {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 19px;
+    line-height: 1.4;
+    max-width: 320px;
+    margin-bottom: 26px;
+  }
+
+  /* ---------- 6. Íconos de redes ---------- */
+  .redes {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 34px;
+  }
+  .redes a {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: var(--blanco);
+    border: 1px solid var(--nude);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--cafe);
+    font-size: 19px;
+    text-decoration: none;
+  }
+
+  /* ---------- 7. Botones ---------- */
+  .botones {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 44px;
+  }
+  .boton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 58px;
+    padding: 14px 24px;
+    border-radius: 999px;
+    background: var(--nude);
+    color: var(--cafe-oscuro);
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    text-decoration: none;
+  }
+
+  /* Contorno visible al navegar con teclado */
+  a:focus-visible {
+    outline: 2px solid var(--cafe);
+    outline-offset: 3px;
+  }
+
+  /* ---------- 8. Pie ---------- */
+  footer {
+    margin-top: auto;
+    font-size: 12px;
+    letter-spacing: 0.3px;
+    color: var(--cafe);
+  }
+
+  /* En computadora, un poco más de aire arriba */
+  @media (min-width: 768px) {
+    .pagina { padding-top: 80px; }
+  }
+</style>
+</head>
+<body>
+
+<main class="pagina">
+
+  <!-- 1. Foto -->
+  <div class="foto" role="img" aria-label="Foto de Carmen Elena">
+    <img src="foto.jpg" alt="" onerror="this.parentElement.classList.add('sin-foto')">
+    <span class="iniciales" aria-hidden="true">CE</span>
+  </div>
+
+  <!-- 2. Etiqueta -->
+  <span class="etiqueta">Asesorías GRATIS</span>
+
+  <!-- 3. Nombre -->
+  <h1>Carmen Elena</h1>
+
+  <!-- 4. Línea corta -->
+  <p class="linea"><span>Comunicadora ·</span> <span>Fundadora de CE ·</span> <span>Viajes para mujeres</span></p>
+
+  <!-- 5. Frase -->
+  <p class="frase">Construyo marcas, conecto personas y transformo ideas en proyectos con visión.</p>
+
+  <!-- 6. Redes -->
+  <nav class="redes" aria-label="Redes sociales">
+    <a data-link="instagram" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+    <a data-link="tiktok" aria-label="TikTok"><i class="fa-brands fa-tiktok" aria-hidden="true"></i></a>
+    <a data-link="whatsapp" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
+  </nav>
+
+  <!-- 7. Botones -->
+  <nav class="botones" aria-label="Mis proyectos">
+    <a class="boton" data-link="comunidad">Únete a mi comunidad</a>
+    <a class="boton" data-link="cecreart">Asesoría 1:1 en Ce Cre Art</a>
+    <a class="boton" data-link="cebikinis">Mi marca: Ce Bikinis</a>
+    <a class="boton" data-link="lacabana">Viajemos juntas con La Cabaña</a>
+  </nav>
+
+  <!-- 8. Pie -->
+  <footer>© 2026 Carmen Elena · @carmenelenace</footer>
+
+</main>
+
+<script>
+  // Conecta cada botón e ícono con su link del bloque de arriba.
+  // Los links que todavía están pendientes no llevan a ninguna parte.
+  document.querySelectorAll("[data-link]").forEach(function (enlace) {
+    var url = LINKS[enlace.dataset.link] || "";
+    var listo = /^https?:\/\//.test(url) && url.indexOf("XXXX") === -1;
+    if (listo) {
+      enlace.href = url;
+      enlace.target = "_blank";
+      enlace.rel = "noopener";
+    } else {
+      enlace.href = "#";
+      enlace.title = "Link pendiente";
+      enlace.addEventListener("click", function (e) { e.preventDefault(); });
+    }
+  });
+</script>
+
+</body>
+</html>
